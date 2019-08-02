@@ -3,9 +3,11 @@ var fixedRect, movingRect;
 function setup() {
   fixedRect = createSprite(200,200,50,10);
   fixedRect.shapeColor = "blue";
+  fixedRect.velocityX=2;
 
   movingRect = createSprite(100,100,80,50);
   movingRect.shapeColor = "blue";
+  movingRect.velocityX=2;
 
   createCanvas(800,400);
 }
@@ -20,12 +22,19 @@ function draw() {
     movingRect.y - fixedRect.y < fixedRect.height/2 + movingRect.height/2 && fixedRect.y - movingRect.y < 
     movingRect.height/2 + fixedRect.height/2){
   
-  fixedRect.shapeColor = "red";
-  movingRect.shapeColor = "orange";
+    fixedRect.shapeColor = "red";
+    movingRect.shapeColor = "orange";
+    
+    movingRect.velocityX = movingRect.velocityX * -1;
+    fixedRect.velocityX = fixedRect.velocityX * -1;
+    
   }
   else{
     fixedRect.shapeColor = "blue";
     movingRect.shapeColor = "blue";
+    
+    fixedRect.velocityX=2;
+    movingRect.velocityX=2;
   }
 
 
